@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 270 40% 98%;
+    --foreground: 270 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 20% 15%;
+
+    --primary: 270 60% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 50% 85%;
+    --secondary-foreground: 270 20% 15%;
+
+    --muted: 270 30% 95%;
+    --muted-foreground: 270 10% 50%;
+
+    --accent: 260 70% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 90%;
+    --input: 270 20% 90%;
+    --ring: 270 60% 60%;
+
+    --radius: 1rem;
+
+    /* Gradient colors */
+    --gradient-start: 270 60% 85%;
+    --gradient-mid: 280 70% 90%;
+    --gradient-end: 290 60% 95%;
+
+    /* Glass effect */
+    --glass-bg: 0 0% 100%;
+    --glass-border: 270 30% 85%;
+
+    /* Glow effects */
+    --glow-primary: 270 80% 70%;
+    --glow-secondary: 280 70% 75%;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 270 30% 10%;
+    --foreground: 270 20% 95%;
+
+    --card: 270 25% 15%;
+    --card-foreground: 270 20% 95%;
+
+    --popover: 270 25% 15%;
+    --popover-foreground: 270 20% 95%;
+
+    --primary: 270 60% 70%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 30% 20%;
+    --secondary-foreground: 270 20% 95%;
+
+    --muted: 270 20% 20%;
+    --muted-foreground: 270 10% 60%;
+
+    --accent: 260 70% 75%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 25%;
+    --input: 270 20% 25%;
+    --ring: 270 60% 70%;
+
+    --gradient-start: 270 40% 20%;
+    --gradient-mid: 280 45% 25%;
+    --gradient-end: 290 40% 30%;
+
+    --glass-bg: 270 25% 15%;
+    --glass-border: 270 30% 30%;
+
+    --glow-primary: 270 80% 60%;
+    --glow-secondary: 280 70% 65%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground font-light;
+    font-family: 'Inter', sans-serif;
+    background: white;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: repeating-linear-gradient(45deg,
+        rgba(255, 192, 203, 0.1) 0px,
+        rgba(255, 218, 185, 0.1) 100px,
+        rgba(138, 106, 255, 0.1) 200px,
+        rgba(186, 85, 211, 0.1) 300px,
+        rgba(255, 182, 193, 0.1) 400px,
+        rgba(255, 192, 203, 0.1) 500px);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight;
+  }
+
+  @keyframes gradientMove {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+
+  .text-subtle {
+    @apply opacity-70;
+  }
+
+  .gradient-bg {
+    background: transparent;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
