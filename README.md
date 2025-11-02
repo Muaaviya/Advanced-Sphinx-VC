@@ -23,7 +23,7 @@ git clone https://github.com/Muaaviya/Advanced-Sphinx-VC.git
 **Step 2:** Navigate to the project directory.
 
 ```bash
-cd <YOUR_PROJECT_NAME>
+cd Advanced-Sphinx-VC
 ```
 
 **Step 3:** Install the necessary dependencies.
