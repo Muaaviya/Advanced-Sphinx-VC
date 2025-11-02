@@ -1,5 +1,8 @@
 import { useEffect, useRef } from "react";
 import { LinkedinLogo, TwitterLogo } from "@phosphor-icons/react";
+import ceoImage from "@/assets/ceo.png";
+import ctoImage from "@/assets/cto.png";
+import designerImage from "@/assets/designer.png";
 
 const Team = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -27,32 +30,32 @@ const Team = () => {
       name: "Dr. Alexandra Chen",
       role: "Co-Founder & CEO",
       bio: "PhD in AI from Stanford. Former researcher at DeepMind with 10+ years in machine learning.",
+      image: ceoImage,
     },
     {
       name: "Marcus Rodriguez",
       role: "Co-Founder & CTO",
       bio: "Ex-Google engineer with expertise in building scalable consumer platforms.",
+      image: ctoImage,
     },
     {
       name: "Sophie Laurent",
       role: "Head of Design",
       bio: "Award-winning designer previously at Apple, passionate about creating delightful experiences.",
+      image: designerImage,
     },
   ];
 
   return (
-    <section
-      id="team"
-      ref={sectionRef}
-      className="py-24 px-4 gradient-bg"
-    >
+    <section id="team" ref={sectionRef} className="py-24 px-4 gradient-bg">
       <div className="container mx-auto max-w-6xl">
         <div className="fade-element text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-4">
             Meet the <span className="font-semibold">Team</span>
           </h2>
           <p className="text-lg text-subtle max-w-2xl mx-auto font-light">
-            A passionate group dedicated to transforming how couples discover savings
+            A passionate group dedicated to transforming how couples discover
+            savings
           </p>
         </div>
 
@@ -63,7 +66,11 @@ const Team = () => {
               className="fade-element glass-card p-8 rounded-3xl hover:bg-white/20 transition-all duration-300 text-center group ring-2 ring-primary shadow-[0_0_40px_hsl(var(--glow-primary)/0.3)]"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent group-hover:scale-105 transition-transform" />
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-32 h-32 mx-auto mb-6 rounded-full object-cover group-hover:scale-105 transition-transform"
+              />
               <h3 className="text-xl font-light mb-1">{member.name}</h3>
               <p className="text-sm text-primary mb-4">{member.role}</p>
               <p className="text-sm text-subtle font-light leading-relaxed mb-6">
