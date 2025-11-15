@@ -1,8 +1,11 @@
-import type { Config } from "tailwindcss";
-
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
     container: {
@@ -106,7 +109,7 @@ export default {
         "fade-in-up": "fade-in-up 0.8s ease-out",
       },
       backdropBlur: {
-        xs: '2px',
+        xs: "2px",
       },
     },
   },
